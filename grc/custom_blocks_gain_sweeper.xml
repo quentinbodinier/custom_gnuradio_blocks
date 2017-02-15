@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<block>
+  <name>Gain Sweeper</name>
+  <key>custom_blocks_gain_sweeper</key>
+  <category>Custom</category>
+  <import>import custom_blocks</import>
+  <make>custom_blocks.gain_sweeper($gain_range, $segment_length)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Gain Range</name>
+    <key>gain_range</key>
+    <value>[1, 2, 3]</value>
+    <type>real_vector</type>
+  </param>
+  <param>
+    <name>Segment Length</name>
+    <key>segment_length</key>
+    <value>128</value>
+    <type>int</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+</block>
