@@ -26,7 +26,7 @@ class gain_sweeper(gr.sync_block):
     """
     Gain Sweeper block
     """
-    def __init__(self, gain_range,segment_length, gain_mode):
+    def __init__(self, gain_range,segment_length, gain_mode, repeat=False):
         """
         Makes gain sweeper block
 
@@ -48,15 +48,19 @@ class gain_sweeper(gr.sync_block):
             self.gain_range = np.array(gain_range)
         elif gain_mode == 'dB':
             self.gain_range = np.power(10,np.array(gain_range)/10.)
+        self.repeat = repeat
 
 
     def work(self, input_items, output_items):
         in0 = input_items[0]
         out = output_items[0]
-        
+        print len(in0)
         # We simply multiply the input by a gain that we take from the gain range
-        out[:] = in0*self.gain_range[(self.k/self.segment_length)%len(self.gain_range)]
-        self.k += 1 
+        if self.repeat or (self.k/self.segment_length)/len(self.gain_range)<1:
+            out[:] = in0*self.gain_range[(self.k/self.segment_length)%len(self.gain_range)]
+        else:
+            out[:] = np.zeros(len(in0),dtype=np.complex64)
+        self.k += len(in0)
         if self.k%self.segment_length==0:
             print 'Current gain: %s' % self.gain_range[(self.k/self.segment_length)%len(self.gain_range)]
         

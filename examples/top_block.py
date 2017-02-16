@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Wed Feb 15 16:00:34 2017
+# Generated: Thu Feb 16 11:07:36 2017
 ##################################################
 
 if __name__ == '__main__':
@@ -17,7 +17,6 @@ if __name__ == '__main__':
             print "Warning: failed to XInitThreads()"
 
 from PyQt4 import Qt
-from gnuradio import analog
 from gnuradio import blocks
 from gnuradio import eng_notation
 from gnuradio import gr
@@ -58,7 +57,7 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 100000
+        self.samp_rate = samp_rate = 256*15000
 
         ##################################################
         # Blocks
@@ -69,7 +68,7 @@ class top_block(gr.top_block, Qt.QWidget):
         	0, #fc
         	samp_rate, #bw
         	"", #name
-        	False, #plotfreq
+        	True, #plotfreq
         	False, #plotwaterfall
         	True, #plottime
         	False, #plotconst
@@ -82,15 +81,18 @@ class top_block(gr.top_block, Qt.QWidget):
         
         
           
-        self.custom_blocks_gain_sweeper_0 = custom_blocks.gain_sweeper(([1, 2, 3]), 10)
+        self.custom_blocks_gain_sweeper_0 = custom_blocks.gain_sweeper(([20, 40, 60]), 2880000, 'dB', False)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
-        self.analog_const_source_x_0 = analog.sig_source_c(0, analog.GR_CONST_WAVE, 0, 0, 1)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, "/home/quentin/Documents/MATLAB/5g-link-level/results/generated_signals/OFDM", True)
+        self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_gr_complex*1, "/home/quentin/Documents/1-Research/9-Papiers/Work In Progress/Experiment/received_ofdm", False)
+        self.blocks_file_sink_0.set_unbuffered(False)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_const_source_x_0, 0), (self.blocks_throttle_0, 0))    
+        self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_0, 0))    
         self.connect((self.blocks_throttle_0, 0), (self.custom_blocks_gain_sweeper_0, 0))    
+        self.connect((self.custom_blocks_gain_sweeper_0, 0), (self.blocks_file_sink_0, 0))    
         self.connect((self.custom_blocks_gain_sweeper_0, 0), (self.qtgui_sink_x_0, 0))    
 
     def closeEvent(self, event):

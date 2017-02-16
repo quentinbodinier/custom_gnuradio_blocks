@@ -33,6 +33,9 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/grc/blocks" TYPE FILE FILES "/home/quentin/Documents/software/gr-custom_blocks/grc/custom_blocks_gain_sweeper.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gnuradio/grc/blocks" TYPE FILE FILES
+    "/home/quentin/Documents/software/gr-custom_blocks/grc/custom_blocks_gain_sweeper.xml"
+    "/home/quentin/Documents/software/gr-custom_blocks/grc/custom_blocks_test_interp.xml"
+    )
 endif()
 

@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/custom_blocks" TYPE FILE FILES
     "/home/quentin/Documents/software/gr-custom_blocks/python/__init__.py"
     "/home/quentin/Documents/software/gr-custom_blocks/python/gain_sweeper.py"
+    "/home/quentin/Documents/software/gr-custom_blocks/python/test_interp.py"
     )
 endif()
 
@@ -43,8 +44,10 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/custom_blocks" TYPE FILE FILES
     "/home/quentin/Documents/software/gr-custom_blocks/build/python/__init__.pyc"
     "/home/quentin/Documents/software/gr-custom_blocks/build/python/gain_sweeper.pyc"
+    "/home/quentin/Documents/software/gr-custom_blocks/build/python/test_interp.pyc"
     "/home/quentin/Documents/software/gr-custom_blocks/build/python/__init__.pyo"
     "/home/quentin/Documents/software/gr-custom_blocks/build/python/gain_sweeper.pyo"
+    "/home/quentin/Documents/software/gr-custom_blocks/build/python/test_interp.pyo"
     )
 endif()
 

@@ -17,5 +17,6 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 install(FILES
-    custom_blocks_gain_sweeper.xml DESTINATION share/gnuradio/grc/blocks
+    custom_blocks_gain_sweeper.xml
+    custom_blocks_test_interp.xml DESTINATION share/gnuradio/grc/blocks
 )

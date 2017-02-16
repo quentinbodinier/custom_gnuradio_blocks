@@ -4,7 +4,7 @@
   <key>custom_blocks_gain_sweeper</key>
   <category>Custom</category>
   <import>import custom_blocks</import>
-  <make>custom_blocks.gain_sweeper($gain_range, $segment_length, $gain_mode)</make>
+  <make>custom_blocks.gain_sweeper($gain_range, $segment_length, $gain_mode, $repeat)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
@@ -35,6 +35,12 @@
       <name>dB</name>
       <key>'dB'</key>
     </option>
+  </param>
+  <param>
+    <name>Repeat</name>
+    <key>repeat</key>
+    <value>False</value>
+    <type>bool</type>
   </param>
 
   <!-- Make one 'sink' node per input. Sub-nodes:

@@ -78,17 +78,6 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -99,6 +88,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target test
 test:
@@ -166,19 +166,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-python/CMakeFiles/pygen_python_4804a.dir/rule:
-	cd /home/quentin/Documents/software/gr-custom_blocks/build && $(MAKE) -f CMakeFiles/Makefile2 python/CMakeFiles/pygen_python_4804a.dir/rule
-.PHONY : python/CMakeFiles/pygen_python_4804a.dir/rule
+python/CMakeFiles/pygen_python_5ecc1.dir/rule:
+	cd /home/quentin/Documents/software/gr-custom_blocks/build && $(MAKE) -f CMakeFiles/Makefile2 python/CMakeFiles/pygen_python_5ecc1.dir/rule
+.PHONY : python/CMakeFiles/pygen_python_5ecc1.dir/rule
 
 # Convenience name for target.
-pygen_python_4804a: python/CMakeFiles/pygen_python_4804a.dir/rule
+pygen_python_5ecc1: python/CMakeFiles/pygen_python_5ecc1.dir/rule
 
-.PHONY : pygen_python_4804a
+.PHONY : pygen_python_5ecc1
 
 # fast build rule for target.
-pygen_python_4804a/fast:
-	cd /home/quentin/Documents/software/gr-custom_blocks/build && $(MAKE) -f python/CMakeFiles/pygen_python_4804a.dir/build.make python/CMakeFiles/pygen_python_4804a.dir/build
-.PHONY : pygen_python_4804a/fast
+pygen_python_5ecc1/fast:
+	cd /home/quentin/Documents/software/gr-custom_blocks/build && $(MAKE) -f python/CMakeFiles/pygen_python_5ecc1.dir/build.make python/CMakeFiles/pygen_python_5ecc1.dir/build
+.PHONY : pygen_python_5ecc1/fast
 
 # Help Target
 help:
@@ -188,9 +188,9 @@ help:
 	@echo "... depend"
 	@echo "... list_install_components"
 	@echo "... install"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... pygen_python_4804a"
+	@echo "... rebuild_cache"
+	@echo "... pygen_python_5ecc1"
 	@echo "... test"
 	@echo "... install/strip"
 	@echo "... install/local"
