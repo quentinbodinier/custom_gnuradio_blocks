@@ -16,6 +16,7 @@ class test_interp(gr.interp_block):
     def work(self, input_items, output_items):
         in0 = input_items[0]
         out = output_items[0]
+        print len(in0)
   
         for j in range(len(in0)):
         	if in0[j] == 1:

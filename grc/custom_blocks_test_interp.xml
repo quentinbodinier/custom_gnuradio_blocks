@@ -2,7 +2,7 @@
 <block>
   <name>test_interp</name>
   <key>custom_blocks_test_interp</key>
-  <category>custom_blocks</category>
+  <category>Custom</category>
   <import>import custom_blocks</import>
   <make>custom_blocks.test_interp()</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
