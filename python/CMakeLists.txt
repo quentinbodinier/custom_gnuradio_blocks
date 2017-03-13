@@ -32,7 +32,8 @@ GR_PYTHON_INSTALL(
     FILES
     __init__.py
     gain_sweeper.py
-    test_interp.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
+    test_interp.py
+    OFDM_random_source.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
 )
 
 ########################################################################
@@ -44,3 +45,4 @@ set(GR_TEST_TARGET_DEPS gnuradio-custom_blocks)
 set(GR_TEST_PYTHON_DIRS ${CMAKE_BINARY_DIR}/swig)
 GR_ADD_TEST(qa_gain_sweeper ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_gain_sweeper.py)
 GR_ADD_TEST(qa_test_interp ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_test_interp.py)
+GR_ADD_TEST(qa_OFDM_random_source ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_OFDM_random_source.py)

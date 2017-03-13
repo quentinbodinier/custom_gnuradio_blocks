@@ -33,5 +33,6 @@ except ImportError:
 # import any pure python here
 from gain_sweeper import gain_sweeper
 from test_interp import test_interp
+from OFDM_random_source import OFDM_random_source
 
 #
