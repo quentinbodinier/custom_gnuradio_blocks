@@ -53,10 +53,11 @@ class gain_sweeper(gr.sync_block):
 
     def work(self, input_items, output_items):
         in0 = input_items[0]
+        print len(in0)
         out = output_items[0]
         # We simply multiply the input by a gain that we take from the gain range
         if self.repeat or (self.k/self.segment_length)/len(self.gain_range)<1:
-            out[:] = in0*self.gain_range[(self.k/self.segment_length)%len(self.gain_range)]
+            out[:] = in0*np.sqrt(self.gain_range[(self.k/self.segment_length)%len(self.gain_range)])
         else:
             out[:] = np.zeros(len(in0),dtype=np.complex64)
         self.k += len(in0)
