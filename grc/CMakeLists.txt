@@ -18,5 +18,6 @@
 # Boston, MA 02110-1301, USA.
 install(FILES
     custom_blocks_gain_sweeper.xml
-    custom_blocks_test_interp.xml DESTINATION share/gnuradio/grc/blocks
+    custom_blocks_test_interp.xml
+    custom_blocks_OFDM_random_source.xml DESTINATION share/gnuradio/grc/blocks
 )
