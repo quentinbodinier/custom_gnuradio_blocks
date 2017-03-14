@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Mar 14 10:41:29 2017
+# Generated: Tue Mar 14 14:32:42 2017
 ##################################################
 
 if __name__ == '__main__':
@@ -25,6 +25,7 @@ from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
 import custom_blocks
+import numpy as np
 import sip
 import sys
 
@@ -57,11 +58,17 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 20000000
+        self.trig = trig = 0
+        self.samp_rate = samp_rate = 32000
 
         ##################################################
         # Blocks
         ##################################################
+        _trig_push_button = Qt.QPushButton("trig")
+        self._trig_choices = {'Pressed': 1, 'Released': 0}
+        _trig_push_button.pressed.connect(lambda: self.set_trig(self._trig_choices['Pressed']))
+        _trig_push_button.released.connect(lambda: self.set_trig(self._trig_choices['Released']))
+        self.top_layout.addWidget(_trig_push_button)
         self.qtgui_sink_x_0 = qtgui.sink_c(
         	1024, #fftsize
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
@@ -81,22 +88,31 @@ class top_block(gr.top_block, Qt.QWidget):
         
         
           
-        self.custom_blocks_OFDM_random_source_0 = custom_blocks.OFDM_random_source(256, (range(-16,16)), 32, 10000000)
-        self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_gr_complex*1, 288)
+        self.custom_blocks_triggered_vector_interruptor_0 = custom_blocks.triggered_vector_interruptor((np.ones(32)), trig, 32)
+        self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_gr_complex*1, 32)
+        self.blocks_vector_source_x_0 = blocks.vector_source_c(np.zeros(32), True, 32, [])
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
 
         ##################################################
         # Connections
         ##################################################
         self.connect((self.blocks_throttle_0, 0), (self.qtgui_sink_x_0, 0))    
+        self.connect((self.blocks_vector_source_x_0, 0), (self.custom_blocks_triggered_vector_interruptor_0, 0))    
         self.connect((self.blocks_vector_to_stream_0, 0), (self.blocks_throttle_0, 0))    
-        self.connect((self.custom_blocks_OFDM_random_source_0, 0), (self.blocks_vector_to_stream_0, 0))    
+        self.connect((self.custom_blocks_triggered_vector_interruptor_0, 0), (self.blocks_vector_to_stream_0, 0))    
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
 
+
+    def get_trig(self):
+        return self.trig
+
+    def set_trig(self, trig):
+        self.trig = trig
+        self.custom_blocks_triggered_vector_interruptor_0.trigger=trig
 
     def get_samp_rate(self):
         return self.samp_rate
