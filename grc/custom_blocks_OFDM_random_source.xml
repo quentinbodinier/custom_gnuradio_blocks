@@ -4,7 +4,7 @@
   <key>custom_blocks_OFDM_random_source</key>
   <category>custom_blocks</category>
   <import>import custom_blocks</import>
-  <make>custom_blocks.OFDM_random_source($n_subcarriers, $allocation_vector, $n_cp)</make>
+  <make>custom_blocks.OFDM_random_source($n_subcarriers, $allocation_vector, $n_cp, $preamble_size)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
@@ -28,7 +28,12 @@
     <value>32</value>
     <type>int</type>
   </param>
-
+  <param>
+  	<name>Preamble size</name>
+  	<key>preamble_size</key>
+  	<value>1000</value>
+  	<type>int</type>
+  </param>
   <!-- Make one 'sink' node per input. Sub-nodes:
        * name (an identifier for the GUI)
        * type
