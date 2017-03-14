@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Feb 21 15:18:25 2017
+# Generated: Tue Mar 14 09:17:19 2017
 ##################################################
 
 if __name__ == '__main__':
@@ -57,7 +57,7 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 256*15000
+        self.samp_rate = samp_rate = 20000000
 
         ##################################################
         # Blocks
@@ -69,11 +69,11 @@ class top_block(gr.top_block, Qt.QWidget):
         	samp_rate, #bw
         	"", #name
         	True, #plotfreq
-        	False, #plotwaterfall
+        	True, #plotwaterfall
         	True, #plottime
-        	False, #plotconst
+        	True, #plotconst
         )
-        self.qtgui_sink_x_0.set_update_time(1.0/30)
+        self.qtgui_sink_x_0.set_update_time(1.0/10)
         self._qtgui_sink_x_0_win = sip.wrapinstance(self.qtgui_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_sink_x_0_win)
         
@@ -81,19 +81,16 @@ class top_block(gr.top_block, Qt.QWidget):
         
         
           
-        self.custom_blocks_gain_sweeper_0 = custom_blocks.gain_sweeper(([20, 40, 60]), 2880000, 'dB', False)
+        self.custom_blocks_OFDM_random_source_0 = custom_blocks.OFDM_random_source(256, (range(-16,16)), 32)
+        self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_gr_complex*1, 288)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, "/home/quentin/Documents/MATLAB/5g-link-level/results/generated_signals/OFDM", True)
-        self.blocks_file_sink_0 = blocks.file_sink(gr.sizeof_gr_complex*1, "/home/quentin/Documents/1-Research/9-Papiers/Work In Progress/Experiment/received_ofdm", False)
-        self.blocks_file_sink_0.set_unbuffered(False)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_0, 0))    
-        self.connect((self.blocks_throttle_0, 0), (self.custom_blocks_gain_sweeper_0, 0))    
-        self.connect((self.custom_blocks_gain_sweeper_0, 0), (self.blocks_file_sink_0, 0))    
-        self.connect((self.custom_blocks_gain_sweeper_0, 0), (self.qtgui_sink_x_0, 0))    
+        self.connect((self.blocks_throttle_0, 0), (self.qtgui_sink_x_0, 0))    
+        self.connect((self.blocks_vector_to_stream_0, 0), (self.blocks_throttle_0, 0))    
+        self.connect((self.custom_blocks_OFDM_random_source_0, 0), (self.blocks_vector_to_stream_0, 0))    
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")

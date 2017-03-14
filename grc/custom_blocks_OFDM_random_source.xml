@@ -43,5 +43,6 @@
   <source>
     <name>out</name>
     <type>complex</type>
+    <vlen>$n_subcarriers+$n_cp</vlen>
   </source>
 </block>
