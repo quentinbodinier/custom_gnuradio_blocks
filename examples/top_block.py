@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Mar 14 09:17:19 2017
+# Generated: Tue Mar 14 10:41:29 2017
 ##################################################
 
 if __name__ == '__main__':
@@ -81,7 +81,7 @@ class top_block(gr.top_block, Qt.QWidget):
         
         
           
-        self.custom_blocks_OFDM_random_source_0 = custom_blocks.OFDM_random_source(256, (range(-16,16)), 32)
+        self.custom_blocks_OFDM_random_source_0 = custom_blocks.OFDM_random_source(256, (range(-16,16)), 32, 10000000)
         self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_gr_complex*1, 288)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
 
