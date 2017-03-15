@@ -16,7 +16,7 @@ class OFDM_random_source(gr.sync_block):
         self.n_subcarriers = n_subcarriers
         self.preamble_size = preamble_size
         self.in_preamble = True
-        self.c=0
+	self.c=0
 
 
     def work(self, input_items, output_items):
@@ -24,8 +24,6 @@ class OFDM_random_source(gr.sync_block):
         if self.in_preamble:
         	symbols = np.ones(shape=(out.shape[0],len(self.allocation_vector)),dtype=complex)
         	self.c += out.shape[0]
-        	if self.c>self.preamble_size: 
-        		self.in_preamble=False
         else:
 			symbols = self.constellation[np.random.randint(4,size=(out.shape[0],len(self.allocation_vector)))]
         x = np.zeros((out.shape[0],self.n_subcarriers), dtype=complex)

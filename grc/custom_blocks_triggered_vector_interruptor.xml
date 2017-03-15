@@ -28,8 +28,15 @@
    <param>
     <name>Vector length</name>
     <key>vector_length</key>
-    <value>$vector_length</value>
+    <value>256</value>
     <type>int</type>
+  </param>
+
+  <param>
+    <name>Selector</name>
+    <key>selector</key>
+    <value>np.ones($vector_length)</value>
+    <type>int_vector</type>
   </param>
 
   <!-- Make one 'sink' node per input. Sub-nodes:
