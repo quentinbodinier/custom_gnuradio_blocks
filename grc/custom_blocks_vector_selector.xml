@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<block>
+  <name>vector_selector</name>
+  <key>custom_blocks_vector_selector</key>
+  <category>custom_blocks</category>
+  <import>import custom_blocks</import>
+  <import>import numpy as np</import>
+  <make>custom_blocks.vector_selector($input_size, $selector)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Input Size</name>
+    <key>input_size</key>
+    <value>64</value>
+    <type>int</type>
+  </param>
+  <param>
+    <name>Selection Vector</name>
+    <key>selector</key>
+    <value>np.range(12,24)</value>
+    <type>int_vector</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>$input_size</vlen>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+    <vlen>len($selector)</vlen>
+  </source>
+</block>

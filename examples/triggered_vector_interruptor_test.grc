@@ -363,6 +363,10 @@
       <value>0</value>
     </param>
     <param>
+      <key>selector</key>
+      <value>np.ones($vector_length)</value>
+    </param>
+    <param>
       <key>trigger</key>
       <value>trig</value>
     </param>

@@ -20,5 +20,6 @@ install(FILES
     custom_blocks_gain_sweeper.xml
     custom_blocks_test_interp.xml
     custom_blocks_OFDM_random_source.xml
-    custom_blocks_triggered_vector_interruptor.xml DESTINATION share/gnuradio/grc/blocks
+    custom_blocks_triggered_vector_interruptor.xml
+    custom_blocks_vector_selector.xml DESTINATION share/gnuradio/grc/blocks
 )

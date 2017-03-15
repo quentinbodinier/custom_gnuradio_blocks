@@ -34,7 +34,8 @@ GR_PYTHON_INSTALL(
     gain_sweeper.py
     test_interp.py
     OFDM_random_source.py
-    triggered_vector_interruptor.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
+    triggered_vector_interruptor.py
+    vector_selector.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
 )
 
 ########################################################################
@@ -48,3 +49,4 @@ GR_ADD_TEST(qa_gain_sweeper ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_
 GR_ADD_TEST(qa_test_interp ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_test_interp.py)
 GR_ADD_TEST(qa_OFDM_random_source ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_OFDM_random_source.py)
 GR_ADD_TEST(qa_triggered_vector_interruptor ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_triggered_vector_interruptor.py)
+GR_ADD_TEST(qa_vector_selector ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_vector_selector.py)
