@@ -50,4 +50,9 @@
     <type>complex</type>
     <vlen>$n_subcarriers+$n_cp</vlen>
   </source>
+  <source>
+    <name>symbols per subcarriers</name>
+    <type>complex</type>
+    <vlen>len($allocation_vector)</vlen>
+  </source>
 </block>
