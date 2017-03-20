@@ -11,8 +11,8 @@ class moving_average(gr.sync_block):
     def __init__(self, a, vlen):
         gr.sync_block.__init__(self,
             name="moving_average",
-            in_sig=[(np.float16,vlen)],
-            out_sig=[(np.float16,vlen)])
+            in_sig=[(np.float,vlen)],
+            out_sig=[(np.float,vlen)])
         self.memory = np.zeros(vlen,dtype=float)
         self.a = a
 
