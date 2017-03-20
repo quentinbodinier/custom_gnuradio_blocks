@@ -4,7 +4,7 @@
 import numpy as np
 from gnuradio import gr
 
-class complex_to_power(gr.sync_block):
+class complex_to_power(gr.decim_block):
     """
     docstring for block complex_to_power
     """
