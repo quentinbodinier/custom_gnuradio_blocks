@@ -29,7 +29,7 @@ class OFDM_random_source(gr.sync_block):
 			symbols = self.constellation[np.random.randint(4,size=(out.shape[0],len(self.allocation_vector)))]
         x = np.zeros((out.shape[0],self.n_subcarriers), dtype=complex)
         x[:,self.allocation_vector] = symbols
-        out[:,self.n_cp:] = np.fft.ifft(x)
+        out[:,self.n_cp:] = np.fft.ifft(np.fft.fftshift(x))
         out[:,:self.n_cp] = out[:,-self.n_cp:]
         out1[:,self.allocation_vector] = symbols
         return len(output_items[0])
