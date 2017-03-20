@@ -31,7 +31,7 @@ class OFDM_random_source(gr.sync_block):
         x[:,self.allocation_vector] = symbols
         out[:,self.n_cp:] = np.fft.ifft(x)
         out[:,:self.n_cp] = out[:,-self.n_cp:]
-        out1[:,:] = symbols
+        out1[:,self.allocation_vector] = symbols
         return len(output_items[0])
 
     
