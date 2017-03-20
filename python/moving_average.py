@@ -14,6 +14,7 @@ class moving_average(gr.sync_block):
             in_sig=[(np.float32,vlen)],
             out_sig=[(np.float32,vlen)])
         self.a = a
+        self.memory = None
 
 
     def work(self, input_items, output_items):
