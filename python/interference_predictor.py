@@ -5,7 +5,7 @@ class interference_predictor(gr.sync_block):
     """
     docstring for block interference_predictor
     """
-    def __init__(self, transmit_signal, active_subcarriers, active_sec=):
+    def __init__(self, transmit_signal, active_subcarriers, active_sec=0):
         gr.sync_block.__init__(self,
             name="interference_predictor",
             in_sig=None,
