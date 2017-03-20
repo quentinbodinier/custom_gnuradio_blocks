@@ -4,24 +4,21 @@
 import numpy as np
 from gnuradio import gr
 
-class moving_average(gr.sync_block):
+class complex_to_power(gr.sync_block):
     """
-    docstring for block moving_average
+    docstring for block complex_to_power
     """
-    def __init__(self, a, vlen):
+    def __init__(self, vlen):
         gr.sync_block.__init__(self,
-            name="moving_average",
-            in_sig=[(np.float,vlen)],
+            name="complex_to_power",
+            in_sig=[(np.complex,vlen)],
             out_sig=[(np.float,vlen)])
-        self.memory = np.zeros(vlen,dtype=float)
-        self.a = a
 
 
     def work(self, input_items, output_items):
         in0 = input_items[0]
         out = output_items[0]
         # <+signal processing here+>
-        self.memory = in0*self.a+self.memory*(1-self.a)
-        out[-1,:] = self.memory
+        out[:,:] = np.square(np.abs(np.asarray(in0)))
         return len(output_items[0])
 
