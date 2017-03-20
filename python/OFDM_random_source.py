@@ -1,4 +1,5 @@
 import numpy as np
+import math as m
 from gnuradio import gr
 
 class OFDM_random_source(gr.sync_block):
@@ -10,7 +11,7 @@ class OFDM_random_source(gr.sync_block):
             name="OFDM_random_source",
             in_sig=None,
             out_sig=[(np.complex64,n_cp+n_subcarriers),(np.complex64,n_subcarriers)])
-        self.constellation=np.array([1+1j, 1-1j, -1-1j, -1+1j])
+        self.constellation=1/m.sqrt(2)*np.array([1+1j, 1-1j, -1-1j, -1+1j])
         self.allocation_vector = np.array(allocation_vector)
         self.n_cp = n_cp
         self.n_subcarriers = n_subcarriers
