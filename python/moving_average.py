@@ -13,7 +13,6 @@ class moving_average(gr.sync_block):
             name="moving_average",
             in_sig=[(np.float32,vlen)],
             out_sig=[(np.float32,vlen)])
-        self.memory = np.zeros(vlen,dtype=float)
         self.a = a
 
 
