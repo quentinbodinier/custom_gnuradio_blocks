@@ -12,7 +12,7 @@ class complex_to_power(gr.decim_block):
         gr.decim_block.__init__(self,
             name="complex_to_power",
             in_sig=[(np.complex,vlen)],
-            out_sig=[(np.float,vlen)], decim=0.5)
+            out_sig=[(np.complex,vlen)])
 
 
     def work(self, input_items, output_items):
