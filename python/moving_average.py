@@ -26,7 +26,7 @@ class moving_average(gr.sync_block):
             self.memory = in0[-1,:]
             m = in0
         else:
-            m = in0*self.a+np.tile(self.memory*(1-self.a),in0.shape)
+            m = in0*self.a+np.tile(self.memory*(1-self.a),(in0.shape[0],1))
             self.memory = m[-1,:]
         out[:,:] = m
         return len(output_items[0])
