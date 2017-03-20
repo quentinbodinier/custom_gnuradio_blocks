@@ -21,7 +21,10 @@ class moving_average(gr.sync_block):
         in0 = input_items[0]
         out = output_items[0]
         # <+signal processing here+>
-        self.memory = in0*self.a+self.memory*(1-self.a)
+        if self.memory is None:
+            self.memory = in0*self.a+self.memory*(1-self.a)
+        else:
+            self.memory = in0
         out[:,:] = self.memory
         return len(output_items[0])
 
