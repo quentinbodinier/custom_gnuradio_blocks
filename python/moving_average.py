@@ -20,6 +20,7 @@ class moving_average(gr.sync_block):
     def work(self, input_items, output_items):
         in0 = input_items[0]
         out = output_items[0]
+        print in0.shape, out.shape
         # <+signal processing here+>
         if self.memory is None:
             self.memory = in0
