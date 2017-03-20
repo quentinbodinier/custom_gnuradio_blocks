@@ -19,6 +19,7 @@ class vector_selector(gr.sync_block):
         in0 = input_items[0]
         out = output_items[0]
         # <+signal processing here+>
+        
         out[:,:len(self.selector)] = in0[:,np.asarray(self.selector)]
         return len(output_items[0])
 

@@ -9,10 +9,10 @@ class complex_to_power(gr.sync_block):
     docstring for block complex_to_power
     """
     def __init__(self, vlen):
-        gr.sync_block.__init__(self,
+        gr.decim_block.__init__(self,
             name="complex_to_power",
             in_sig=[(np.complex,vlen)],
-            out_sig=[(np.float,vlen)])
+            out_sig=[(np.float,vlen)], 2)
 
 
     def work(self, input_items, output_items):
