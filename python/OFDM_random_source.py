@@ -9,7 +9,7 @@ class OFDM_random_source(gr.sync_block):
         gr.sync_block.__init__(self,
             name="OFDM_random_source",
             in_sig=None,
-            out_sig=[(np.complex64,n_cp+n_subcarriers),(np.complex64,len(allocation_vector))])
+            out_sig=[(np.complex64,n_cp+n_subcarriers),(np.complex64,n_subcarriers)])
         self.constellation=np.array([1+1j, 1-1j, -1-1j, -1+1j])
         self.allocation_vector=allocation_vector
         self.n_cp = n_cp
