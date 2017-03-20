@@ -22,5 +22,6 @@ install(FILES
     custom_blocks_OFDM_random_source.xml
     custom_blocks_triggered_vector_interruptor.xml
     custom_blocks_vector_selector.xml
-    custom_blocks_interference_predictor.xml DESTINATION share/gnuradio/grc/blocks
+    custom_blocks_interference_predictor.xml
+    custom_blocks_moving_average.xml DESTINATION share/gnuradio/grc/blocks
 )

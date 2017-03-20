@@ -37,5 +37,6 @@ from OFDM_random_source import OFDM_random_source
 from triggered_vector_interruptor import triggered_vector_interruptor
 from vector_selector import vector_selector
 from interference_predictor import interference_predictor
+from moving_average import moving_average
 
 #

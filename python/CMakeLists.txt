@@ -36,7 +36,8 @@ GR_PYTHON_INSTALL(
     OFDM_random_source.py
     triggered_vector_interruptor.py
     vector_selector.py
-    interference_predictor.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
+    interference_predictor.py
+    moving_average.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
 )
 
 ########################################################################
@@ -52,3 +53,4 @@ GR_ADD_TEST(qa_OFDM_random_source ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DI
 GR_ADD_TEST(qa_triggered_vector_interruptor ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_triggered_vector_interruptor.py)
 GR_ADD_TEST(qa_vector_selector ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_vector_selector.py)
 GR_ADD_TEST(qa_interference_predictor ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_interference_predictor.py)
+GR_ADD_TEST(qa_moving_average ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_moving_average.py)
