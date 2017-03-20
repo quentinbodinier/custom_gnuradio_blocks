@@ -11,7 +11,7 @@ class OFDM_random_source(gr.sync_block):
             in_sig=None,
             out_sig=[(np.complex64,n_cp+n_subcarriers),(np.complex64,n_subcarriers)])
         self.constellation=np.array([1+1j, 1-1j, -1-1j, -1+1j])
-        self.allocation_vector=n_subcarriers/2+np.array(allocation_vector)
+        self.allocation_vector = np.array(allocation_vector)
         self.n_cp = n_cp
         self.n_subcarriers = n_subcarriers
         self.preamble_size = preamble_size
@@ -29,7 +29,7 @@ class OFDM_random_source(gr.sync_block):
 			symbols = self.constellation[np.random.randint(4,size=(out.shape[0],len(self.allocation_vector)))]
         x = np.zeros((out.shape[0],self.n_subcarriers), dtype=complex)
         x[:,self.allocation_vector] = symbols
-        out[:,self.n_cp:] = np.fft.ifft(np.fft.fftshift(x))
+        out[:,self.n_cp:] = np.fft.ifft(x)
         out[:,:self.n_cp] = out[:,-self.n_cp:]
         out1[:,self.allocation_vector] = symbols
         return len(output_items[0])
