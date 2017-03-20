@@ -25,5 +25,5 @@ install(FILES
     custom_blocks_interference_predictor.xml
     custom_blocks_moving_average.xml
     custom_blocks_complex_to_power.xml
-    custom_blocks_test_decim.xml DESTINATION share/gnuradio/grc/blocks
+    DESTINATION share/gnuradio/grc/blocks
 )

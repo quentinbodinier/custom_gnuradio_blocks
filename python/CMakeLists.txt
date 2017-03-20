@@ -57,4 +57,3 @@ GR_ADD_TEST(qa_vector_selector ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/
 GR_ADD_TEST(qa_interference_predictor ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_interference_predictor.py)
 GR_ADD_TEST(qa_moving_average ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_moving_average.py)
 GR_ADD_TEST(qa_complex_to_power ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_complex_to_power.py)
-GR_ADD_TEST(qa_test_decim ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_test_decim.py)
