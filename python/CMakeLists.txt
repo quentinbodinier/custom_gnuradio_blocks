@@ -38,8 +38,7 @@ GR_PYTHON_INSTALL(
     vector_selector.py
     interference_predictor.py
     moving_average.py
-    complex_to_power.py
-    test_decim.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
+    complex_to_power.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
 )
 
 ########################################################################
