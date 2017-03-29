@@ -39,7 +39,8 @@ GR_PYTHON_INSTALL(
     interference_predictor.py
     moving_average.py
     complex_to_power.py
-    input_selector.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
+    input_selector.py
+    rephaser.py DESTINATION ${GR_PYTHON_DIR}/custom_blocks
 )
 
 ########################################################################
