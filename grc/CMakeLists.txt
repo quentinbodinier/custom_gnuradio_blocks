@@ -25,5 +25,6 @@ install(FILES
     custom_blocks_interference_predictor.xml
     custom_blocks_moving_average.xml
     custom_blocks_complex_to_power.xml
-    custom_blocks_input_selector.xml DESTINATION share/gnuradio/grc/blocks
+    custom_blocks_input_selector.xml
+    custom_blocks_rephaser.xml DESTINATION share/gnuradio/grc/blocks
 )

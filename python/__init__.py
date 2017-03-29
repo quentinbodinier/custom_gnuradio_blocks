@@ -40,5 +40,6 @@ from interference_predictor import interference_predictor
 from moving_average import moving_average
 from complex_to_power import complex_to_power
 from input_selector import input_selector
+from rephaser import rephaser
 
 #
